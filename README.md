@@ -35,18 +35,36 @@ If not installed, download Python 3 from [python.org](https://www.python.org/dow
 1. **Enable API**:
    - Go to the [Google Cloud Console](https://console.cloud.google.com/).
    - Enable the Google Calendar API for your project.
+
 2. **Create Service Account**:
    - Navigate to **IAM & Admin > Service Accounts**.
    - Create a service account and download the JSON key file.
+   - Rename the file (e.g., `service_account.json`) for clarity and save it to your project directory.
+
 3. **Share Calendar**:
    - Share your Google Calendar with the service account email (e.g., `your-service-account@project-id.iam.gserviceaccount.com`) with **Editor** permissions.
-4. **Save Credentials**:
-   - Save the JSON key file (e.g., `credentials.json`) in the project directory.
 
-### 3. **Environment Variables**
-Create a `.env` file in the project directory with the following content:
-```
-GOOGLE_APPLICATION_CREDENTIALS=credentials.json
+4. **Save Credentials**:
+   - Place the JSON key file (e.g., `service_account.json`) in the project directory.
+   - Set the `SERVICE_ACCOUNT_FILE` variable in your script to point to this file.
+
+### Script Code Snippet
+
+Ensure your Python script includes the following to authenticate with the service account:
+
+```python
+from google.oauth2 import service_account
+
+# Path to your service account file
+SERVICE_ACCOUNT_FILE = "service_account.json"
+
+# Google Calendar API Scopes
+SCOPES = ['https://www.googleapis.com/auth/calendar']
+
+# Create credentials object
+credentials = service_account.Credentials.from_service_account_file(
+    SERVICE_ACCOUNT_FILE, scopes=SCOPES
+)
 ```
 
 ---
@@ -138,7 +156,7 @@ pip3 install -r requirements.txt
 ```
 
 #### 2. **Credential Errors**
-- Verify the `credentials.json` file is in the same directory as the script.
+- Verify the `service_account.json` file is in the same directory as the script.
 - Ensure your Google Calendar is shared with the service account email.
 
 #### 3. **Mac Automation Issues**
@@ -155,4 +173,4 @@ We welcome contributions! Feel free to submit issues or pull requests to improve
 
 ## 📧 Contact
 
-For any questions or feedback, reach out to: aryansde2204@gmail.com
+For any questions or feedback, reach out to: [aryansde2204@gmail.com].
