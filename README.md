@@ -48,24 +48,34 @@ If not installed, download Python 3 from [python.org](https://www.python.org/dow
    - Place the JSON key file (e.g., `service_account.json`) in the project directory.
    - Set the `SERVICE_ACCOUNT_FILE` variable in your script to point to this file.
 
-### Script Code Snippet
+### Using `.env` for Sensitive Data
 
-Ensure your Python script includes the following to authenticate with the service account:
+To securely manage sensitive information like file paths and API keys, use a `.env` file.
 
-```python
-from google.oauth2 import service_account
+1. **Install Python Dotenv**:
+   Ensure the `dotenv` package is installed:
+   ```bash
+   pip3 install python-dotenv
+   ```
 
-# Path to your service account file
-SERVICE_ACCOUNT_FILE = "service_account.json"
+2. **Create a `.env` File**:
+   In the project directory, create a file named `.env` and add your credentials:
+   ```env
+   SERVICE_ACCOUNT_FILE=service_account.json
+   ```
 
-# Google Calendar API Scopes
-SCOPES = ['https://www.googleapis.com/auth/calendar']
+3. **Update Script to Load `.env`**:
+   Use the following code to load variables from the `.env` file:
+   ```python
+   from dotenv import load_dotenv
+   import os
 
-# Create credentials object
-credentials = service_account.Credentials.from_service_account_file(
-    SERVICE_ACCOUNT_FILE, scopes=SCOPES
-)
-```
+   # Load variables from .env file
+   load_dotenv()
+
+   # Retrieve the service account file path
+   SERVICE_ACCOUNT_FILE = os.getenv("SERVICE_ACCOUNT_FILE")
+   ```
 
 ---
 
