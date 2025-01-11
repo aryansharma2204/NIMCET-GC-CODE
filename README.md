@@ -1,53 +1,66 @@
 # Google Calendar Scheduler with Tkinter UI
 
-This project allows you to schedule tasks and events directly to your Google Calendar with a user-friendly graphical interface. You can add tasks for various subjects, select dates using a calendar widget, and assign colors to events based on the subject. It's optimized for macOS and Linux users, with steps to automate execution on macOS.
+Effortlessly manage your study schedule with this interactive tool. Designed with students in mind, it enables seamless task scheduling directly to Google Calendar via a user-friendly graphical interface.
 
 ---
 
-## Features
+## 🌟 Features
 
-- **Subject-Based Scheduling**: Add tasks for predefined subjects: Maths, Quant, Computer Science, and English.
-- **Graphical Date Picker**: Use a graphical calendar widget (via `tkcalendar`) to select event dates easily.
-- **Color-Coded Events**: Automatically assign unique colors to events for each subject in Google Calendar.
-- **Flexible Exit**: Exit the task creation process at any time using the `Escape` key.
-- **Automation**: Automate script execution on macOS using Automator.
+- **Subject-Based Scheduling**:
+  - Add tasks for predefined subjects: `Maths`, `Quant`, `Computer Science`, and `English`.
+- **Graphical Date Picker**:
+  - Use an intuitive calendar widget powered by `tkcalendar`.
+- **Color-Coded Events**:
+  - Automatically assign unique colors to events for each subject in Google Calendar.
+- **Flexible Exit**:
+  - Exit the task creation process anytime using the `Escape` key.
+- **Environment File**:
+  - Store sensitive data securely with `.env` support.
+- **macOS Automation**:
+  - Automate script execution using Automator.
 
 ---
 
-## Prerequisites
+## 🔧 Prerequisites
 
 ### 1. **Python Installation**
-Ensure Python 3 is installed on your system.
-
-Check your Python version:
+Ensure Python 3 is installed:
 ```bash
 python3 --version
 ```
-
 If not installed, download Python 3 from [python.org](https://www.python.org/downloads/).
 
 ### 2. **Google Calendar API Setup**
 
-1. **Enable API**: Go to the [Google Cloud Console](https://console.cloud.google.com/) and enable the Google Calendar API for your project.
+1. **Enable API**:
+   - Go to the [Google Cloud Console](https://console.cloud.google.com/).
+   - Enable the Google Calendar API for your project.
 2. **Create Service Account**:
    - Navigate to **IAM & Admin > Service Accounts**.
-   - Create a new service account and download the JSON key file.
+   - Create a service account and download the JSON key file.
 3. **Share Calendar**:
    - Share your Google Calendar with the service account email (e.g., `your-service-account@project-id.iam.gserviceaccount.com`) with **Editor** permissions.
-4. **Save Credentials**: Save the JSON key file (e.g., `credentials.json`) in the project directory.
+4. **Save Credentials**:
+   - Save the JSON key file (e.g., `credentials.json`) in the project directory.
+
+### 3. **Environment Variables**
+Create a `.env` file in the project directory with the following content:
+```
+GOOGLE_APPLICATION_CREDENTIALS=credentials.json
+```
 
 ---
 
-## Installation
+## 🚀 Installation
 
 ### 1. **Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/google-calendar-scheduler.git
-cd google-calendar-scheduler
+git clone https://github.com/aryansharma2204/NIMCET-GC-CODE.git
+cd NIMCET-GC-CODE
 ```
 
 ### 2. **Install Dependencies**
-Install the necessary Python libraries using `pip`:
+Install the necessary Python libraries:
 ```bash
 pip3 install -r requirements.txt
 ```
@@ -57,23 +70,23 @@ pip3 install -r requirements.txt
 - `google-auth`
 - `google-auth-oauthlib`
 - `tkcalendar`
-- `tkinter` (pre-installed with Python for most systems)
+- `dotenv`
 
 ### 3. **Run the Script**
 Test the script to verify functionality:
 ```bash
-python3 google_calender_schedule.py
+python3 google_calendar_schedule.py
 ```
 
 ---
 
-## Usage
+## 💻 Usage
 
 ### **Running the Script**
 
 1. **Start the Program**:
    ```bash
-   python3 google_calender_schedule.py
+   python3 google_calendar_schedule.py
    ```
 
 2. **Add Event Details**:
@@ -82,11 +95,11 @@ python3 google_calender_schedule.py
    - Press `Escape` to exit a subject or the entire program.
 
 3. **Check Your Calendar**:
-   Events will appear in your Google Calendar, color-coded by subject.
+   - Events will appear in your Google Calendar, color-coded by subject.
 
 ---
 
-## Automating Script Execution on macOS
+## 🛠 Automating Script Execution on macOS
 
 ### 1. **Create an Automator App**
 
@@ -104,16 +117,17 @@ Double-click the app to execute the script easily.
 
 ---
 
-## Notes for Linux Users
+## 🐧 Notes for Linux Users
+
 Linux users can run the script directly from the terminal:
 ```bash
-python3 google_calender_schedule.py
+python3 google_calendar_schedule.py
 ```
 Ensure all required Python libraries are installed.
 
 ---
 
-## Troubleshooting
+## 🔄 Troubleshooting
 
 ### **Common Issues**
 
@@ -133,12 +147,12 @@ pip3 install -r requirements.txt
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
 We welcome contributions! Feel free to submit issues or pull requests to improve this project.
 
 ---
 
-## Contact
+## 📧 Contact
 
-For any questions or feedback, reach out to [aryansde2204@gmail.com].
+For any questions or feedback, reach out to: aryansde2204@gmail.com
